@@ -1,0 +1,19 @@
+{
+  "name": "threejs",
+  "version": "1.0.0",
+  "description": "threejs webgl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreedoRen/ThreeJs.git"
+  },
+  "author": "GreedoRen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreedoRen/ThreeJs/issues"
+  },
+  "homepage": "https://github.com/GreedoRen/ThreeJs#readme"
+}
