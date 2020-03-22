@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GreedoRen/ThreeJs/issues"
   },
-  "homepage": "https://github.com/GreedoRen/ThreeJs#readme"
+  "homepage": "https://github.com/GreedoRen/ThreeJs#readme",
+  "dependencies": {
+    "three": "^0.114.0"
+  }
 }
