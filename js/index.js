@@ -11,6 +11,15 @@ function main() {
 	const camera = new THREE.PerspectiveCamera(fov, aspect, near, far); // параметры камеры
 	const scene = new THREE.Scene(); // создаем сцену
 
+	{
+		// создаем свет
+		const color = 0xffffff;
+		const intensity = 1;
+		const light = new THREE.DirectionalLight(color, intensity);
+		light.position.set(-1, 2, 4);
+		scene.add(light);
+	}
+
 	//позиция камеры
 	camera.position.z = 2;
 
@@ -19,13 +28,25 @@ function main() {
 	const boxHeight = 1;
 	const boxDepth = 1;
 
-	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); //создаем геометрию объекта
-	const material = new THREE.MeshBasicMaterial({ color: 0xffaa3d }); //создаем материал объекта
+	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
+	const material = new THREE.MeshPhongMaterial({ color: 0xffaa3d }); // создаем материал объекта
 	const cube = new THREE.Mesh(geometry, material); // применяем геометрию и объект
 
 	scene.add(cube); // добавляем объект на сцену
 
-	render.render(scene, camera); // рендерим сцену, передав в нее сцену и камеру
+	//render.render(scene, camera); // рендерим сцену, передав в нее сцену и камеру
+
+	function renderer(time) {
+		time *= 0.001; // конвертировать время в секунды
+
+		cube.rotation.x = time;
+		cube.rotation.y = time;
+
+		render.render(scene, camera);
+		requestAnimationFrame(renderer); // функция для рендера(renderer)
+	}
+
+	requestAnimationFrame(renderer); // функция для рендера(renderer)
 }
 
 main();
