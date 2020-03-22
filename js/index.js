@@ -29,21 +29,41 @@ function main() {
 	const boxDepth = 1;
 
 	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
-	const material = new THREE.MeshPhongMaterial({ color: 0xffaa3d }); // создаем материал объекта
-	const cube = new THREE.Mesh(geometry, material); // применяем геометрию и объект
+	// const material = new THREE.MeshPhongMaterial({ color: 0xffaa3d }); // создаем материал объекта
+	// const cube = new THREE.Mesh(geometry, material); // применяем геометрию и объект
 
-	scene.add(cube); // добавляем объект на сцену
+	//scene.add(cube); // добавляем объект на сцену
 
 	//render.render(scene, camera); // рендерим сцену, передав в нее сцену и камеру
+
+	function makeInstance(geometry, color, x) {
+		const material = new THREE.MeshPhongMaterial({ color });
+		const cube = new THREE.Mesh(geometry, material);
+		scene.add(cube);
+
+		cube.position.x = x;
+
+		return cube;
+	}
+
+	const cubes = [
+		makeInstance(geometry, 0x44aa88, 0),
+		makeInstance(geometry, 0xffaa88, -2),
+		makeInstance(geometry, 0x14aa00, 2)
+	];
 
 	function renderer(time) {
 		time *= 0.001; // конвертировать время в секунды
 
-		cube.rotation.x = time;
-		cube.rotation.y = time;
+		cubes.forEach((cube, idx) => {
+			const speed = 1 + idx * 0.1;
+			const rot = time * speed;
+			cube.rotation.x = rot;
+			cube.rotation.y = rot;
+		});
 
 		render.render(scene, camera);
-		requestAnimationFrame(renderer); // функция для рендера(renderer)
+		requestAnimationFrame(renderer);
 	}
 
 	requestAnimationFrame(renderer); // функция для рендера(renderer)
