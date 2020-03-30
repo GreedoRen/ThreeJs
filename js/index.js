@@ -62,7 +62,7 @@ function main() {
 			cube.rotation.y = rot;
 		});
 
-		render.render(scene, camera);
+		render.render(scene, camera); // THREE.WebGLRenderer.render(scene: any, camera: any, ...args: any[])
 		requestAnimationFrame(renderer);
 	}
 
