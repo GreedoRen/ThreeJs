@@ -55,6 +55,14 @@ function main() {
 	function renderer(time) {
 		time *= 0.001; // конвертировать время в секунды
 
+		const canvas = render.domElement;
+		camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		camera.updateProjectionMatrix();
+
+		// const canvas = renderer.domElement;
+		// camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		// camera.updateProjectionMatrix();
+
 		cubes.forEach((cube, idx) => {
 			const speed = 1 + idx * 0.1;
 			const rot = time * speed;
