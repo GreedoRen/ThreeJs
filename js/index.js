@@ -52,16 +52,24 @@ function main() {
 		makeInstance(geometry, 0x14aa00, 2)
 	];
 
+	function resizeRendererToDisplaySize(renderer) {
+		const canvas = render.domElement;
+		const width = canvas.clientWidth;
+		const height = canvas.clientHeight;
+		const needResize = canvas.width !== width || canvas.height !== height;
+		if (needResize) render.setSize(width, height, false);
+
+		return needResize;
+	}
+
 	function renderer(time) {
 		time *= 0.001; // конвертировать время в секунды
 
-		const canvas = render.domElement;
-		camera.aspect = canvas.clientWidth / canvas.clientHeight;
-		camera.updateProjectionMatrix();
-
-		// const canvas = renderer.domElement;
-		// camera.aspect = canvas.clientWidth / canvas.clientHeight;
-		// camera.updateProjectionMatrix();
+		if (resizeRendererToDisplaySize(renderer)) {
+			const canvas = render.domElement;
+			camera.aspect = canvas.clientWidth / canvas.clientHeight;
+			camera.updateProjectionMatrix();
+		}
 
 		cubes.forEach((cube, idx) => {
 			const speed = 1 + idx * 0.1;
