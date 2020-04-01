@@ -7,7 +7,7 @@ function main() {
 	const fov = 75; // поле зрения
 	const aspect = 2; // соотношение сторон
 	const near = 0.1; // пространство перед камерой / камера усечена рядом с плоскостью
-	const far = 5; // пространство за камерой / камера усечена в дальней плоскости.
+	const far = 7; // пространство за камерой / камера усечена в дальней плоскости.
 	const camera = new THREE.PerspectiveCamera(fov, aspect, near, far); // параметры камеры
 	const scene = new THREE.Scene(); // создаем сцену
 
