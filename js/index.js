@@ -24,8 +24,8 @@ function main() {
 	camera.position.z = 2;
 
 	//параметры объекта
-	const boxWidth = 1;
-	const boxHeight = 1;
+	const boxWidth = 2;
+	const boxHeight = 2;
 	const boxDepth = 1;
 
 	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
