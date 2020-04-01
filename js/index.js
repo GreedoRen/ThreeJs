@@ -21,12 +21,12 @@ function main() {
 	}
 
 	//позиция камеры
-	camera.position.z = 2;
+	camera.position.z = 3;
 
 	//параметры объекта
-	const boxWidth = 2;
+	const boxWidth = 1;
 	const boxHeight = 2;
-	const boxDepth = 1;
+	const boxDepth = 2;
 
 	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
 	// const material = new THREE.MeshPhongMaterial({ color: 0xffaa3d }); // создаем материал объекта
