@@ -29,12 +29,6 @@ function main() {
 	const boxDepth = 2;
 
 	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
-	// const material = new THREE.MeshPhongMaterial({ color: 0xffaa3d }); // создаем материал объекта
-	// const cube = new THREE.Mesh(geometry, material); // применяем геометрию и объект
-
-	//scene.add(cube); // добавляем объект на сцену
-
-	//render.render(scene, camera); // рендерим сцену, передав в нее сцену и камеру
 
 	function makeInstance(geometry, color, x) {
 		const material = new THREE.MeshPhongMaterial({ color });
