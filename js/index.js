@@ -25,8 +25,8 @@ function main() {
 
 	//параметры объекта
 	const boxWidth = 1;
-	const boxHeight = 2;
-	const boxDepth = 2;
+	const boxHeight = 1;
+	const boxDepth = 1;
 
 	const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth); // создаем геометрию объекта
 
